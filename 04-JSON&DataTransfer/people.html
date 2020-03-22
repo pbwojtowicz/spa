@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>People</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<h1>People</h1>
+		<p>Click the button to show personal data of people</p>
+		<input type="button" value="Display personsal data" onclick="connect()" >
+		<ol id="list">
+
+        </ol>
+
+		<script>
+			function connect() {
+			var req = new XMLHttpRequest();
+			req.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+                    var input = JSON.parse(req.responseText);
+                    addElemetToList(input)
+				    }   
+                
+            }  
+			req.open('GET', 'people.json');
+			req.send();
+			}
+			
+			function addListItem(input) {
+                for(i=0; i<input.length; i++) {
+                    var listElement = document.createElement("li")
+                    var personalData = document.createTextNode(`${input[i].name} ${input[i].surname.toUpperCase()}, ${input[i].country}`)
+                    listElement.appendChild(personalData)
+                    document.getElementById("list").appendChild(listElement)
+                }
+            }
+			
+			
+		</script>
+
+	</body>
+</html>
+
+
