@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="main">
+    <university></university>
+  </div>
+</body>
+</html>
+
+<script>
+  Vue.component('university', {
+    data() {
+      return {
+        name: 'Cracow University of Economics',
+        address: '31-510 Kraków, Rakowicka 27, POLAND',
+      }
+    },
+    template: '<div><h1>{{ name }}</h1><p>{{ address }}</p></div>'
+  })
+
+  new Vue({
+    el: '#main' 
+  })
+</script>

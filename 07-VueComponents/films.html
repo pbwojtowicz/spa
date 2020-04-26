@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Films</title>
+</head>
+<body>
+
+    <div id="app">
+      <film1></film1>
+      <film2></film2>
+      <film3></film3>
+    </div>
+
+
+    <script>
+
+        Vue.component('film1',{
+            template: `<div>
+                        <h1>Tytuł: {{title}}</h1>
+                        <p>Reżyser: {{director}} </p>
+                        <p>Rok produkcji: {{year}}</p>
+                       </div>`,
+            data:function(){
+                return {
+                    title: 'The Lighthouse',
+                    director: 'Robert Eggers',
+                    year: '2019'
+                }
+            }
+        })
+
+        Vue.component('film2',{
+            template: `<div>
+                        <h1>Tytuł: {{title}}</h1>
+                        <p>Reżyser: {{director}} </p>
+                        <p>Rok produkcji: {{year}}</p>
+                       </div>`,
+            data:function(){
+                return {
+                    title: 'Midsommar',
+                    director: 'Ari Aster',
+                    year: '2019'
+                }
+            }
+        })
+
+        Vue.component('film3',{
+            template: `<div>
+                        <h1>Tytuł: {{title}}</h1>
+                        <p>Reżyser: {{director}} </p>
+                        <p>Rok produkcji: {{year}}</p>
+                       </div>`,
+            data:function(){
+                return {
+                    title: 'The Killing of a Sacred Deer',
+                    director: 'Jorgos Lantimos',
+                    year: '2017'
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app'
+        })
+
+    </script>
+    
+</body>
+</html>
