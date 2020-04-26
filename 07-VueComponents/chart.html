@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>Chart</title>
+</head>
+<body>
+
+
+    <div id="app">
+
+      <chart v-bind:y="y" v-bind:x="x"></chart>   
+    </div>
+    
+
+
+    <script>
+
+        Vue.component('chart',{
+            props: ['x','y'],
+            template: `<canvas ref="canvas"></canvas>`,
+            methods:{
+                drawChart:function(){
+                    let ctx = this.$refs.canvas.getContext('2d');
+                    new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: this.x,
+                        datasets: [{
+                            label: 'Numbers',
+                            data: this.y,
+                            backgroundColor: 'rgb(64, 186, 130)',
+                            borderColor: 'rgb(64, 186, 130)',
+                            borderWidth: 5,
+                            fill: 'false'
+                        }]
+                    }
+
+                });
+                }
+            },
+            mounted(){
+                this.drawChart()
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data:{
+                y: [34,25,19,15,20,37,47,50,29,12],
+                x: [1,2,3,4,5,6,7,8,9,10]
+            }
+        })
+    </script>
+</body>
+</html>

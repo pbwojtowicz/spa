@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Counter</title>
+</head>
+<body>
+    <div id="app">
+        <Counter></Counter>
+    </div>
+    <script>
+        Vue.component('Counter', {
+            data: function() {
+              return {
+              current: 0
+            }
+            },
+            methods: {
+              add: function() {
+                this.current++
+              },
+              substract: function() {
+                this.current--
+              },
+            },
+            template: `
+            <div>
+              <div>{{current}}</div>
+              <button @click=add>
+                ADD
+              </button>
+              <button @click=substract>
+                SUBSTRACT
+              </button>
+            </div>
+            `
+          })
+    
+        new Vue({
+          el: '#app',
+        });
+      </script>
+</body>
+</html>
