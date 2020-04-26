@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>von Neuman Components</title>
+</head>
+<body>
+
+    <div id="app">
+        <architecture></architecture>
+    </div>
+
+
+    <script>
+
+        Vue.component('architecture', {
+            template: `<div>
+                          <h1>{{header}}</h1>
+                          <p v-for="el in this.data">{{el}}</p>
+                       </div>`,
+            data:function(){
+                return {
+                    header: 'Von Neumann\'s computer architecture:',
+                    data: ['Memory', 'Control Unit', 'Arithmetic Logic Unit', 'Input', 'Output']
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Binary numbers</title>
+</head>
+<body>
+  <div id="app">
+    <div v-for='number in elements'>
+      <Display :element="number"></Display>
+    </div>
+  </div>
+</body>
+
+<script>
+  Vue.component('Display', {
+    props: ['element'],
+    
+    template: `
+    <div>
+      <p>{{ toBinary() }}</p>
+    </div>
+    `,
+    methods: {
+      toBinary: function() {
+        return this.element.toString(2);
+      }
+    },
+  }
+  )
+
+  new Vue({
+    el: '#app',
+    data: {
+      elements: [8, 170, 204, 3855]
+    }
+  });
+</script>
+</html>
