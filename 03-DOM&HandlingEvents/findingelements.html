@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Finding elements</title>
 </head>
 
@@ -11,7 +13,17 @@
     <p>Find elements by tag name</p>
 
     <script>
-        // a JavaScript code here ...
+        var h1 = document.getElementsByTagName("h1");
+        var idEl = document.getElementById("someTest").innerHTML;
+        var important = document.getElementsByClassName("important").innerHTML;
+        var pEl = document.getElementsByTagName("p").innerHTML;
+
+        console.log(h1.innerHTML);
+        console.log(idEl);
+        console.log(important);
+        console.log(pEl);
+
+
 
     </script>
 </body>
